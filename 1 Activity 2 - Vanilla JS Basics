@@ -1,0 +1,6 @@
+// entering numbers
+
+var a = prompt('Enter first number');
+var b = prompt('Enter second number');
+// result
+alert(a + b);

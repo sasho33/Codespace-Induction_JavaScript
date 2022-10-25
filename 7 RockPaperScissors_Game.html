@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors!</title>
+
+  </head>
+  <body onload="getResult()">
+    <style media="screen">
+      body {
+  background-color: linen;
+}
+
+h4 {
+  text-align: center;
+
+}
+
+.game {
+text-align: center;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+}
+
+.results {
+  margin-top: 40px;
+  text-align: center;
+}
+    </style>
+    <img src="" alt="">
+<h4>
+  The Winning Rules are as follows:
+Rock smashes Scissors.
+Paper covers Rock.
+Scissors cut Paper.
+Choose your option below!
+</h4>
+<div class="game" margin="0 auto">
+  <button type="button"  name="rock" value="0">Rock</button>
+  <button type="button"  name="paper" value="1">Paper</button>
+  <button type="button" name="scissors" value="2">Scissors</button>
+</div>
+<div class="results">
+<h3 id="You">Your Choice: </h3>
+<h3 id="Computer">Computer Choice: </h3>
+<h3 id="Results">Result: </h3>
+</div>
+
+<script type="text/javascript">
+  function getResult() {
+    event.preventDefault()
+
+// array of probably options
+    var variants=["Rock", "Paper", "Scissors"];
+
+
+// event listener for buttons
+var btn = document.getElementsByTagName("button");
+
+for (let item of btn) {
+  item.onclick = function(){
+  var userChoice = variants[item.value];
+
+document.getElementById("You").innerHTML="Your Choice: "+userChoice
+const randomInt = Math.floor(Math.random() * 3);
+var computerChoice = variants[randomInt];
+document.getElementById("Computer").innerHTML="Computer Choice: "+computerChoice
+
+// game logic
+if (computerChoice==userChoice) {
+  document.getElementById("Results").innerHTML="Result: Its a tie! "
+}
+else if (computerChoice=="Paper" && userChoice=="Scissors" || computerChoice=="Scissors" && userChoice=="Rock" || computerChoice=="Rock" && userChoice=="Paper")
+{
+  document.getElementById("Results").innerHTML="Result: You won! "
+}
+else
+{
+  document.getElementById("Results").innerHTML="Result: You lose! "
+}
+  }
+}
+
+
+
+}
+</script>
+
+
+  </body>
+</html>

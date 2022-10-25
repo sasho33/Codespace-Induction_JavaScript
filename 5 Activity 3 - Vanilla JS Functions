@@ -1,0 +1,19 @@
+function CheckPrime(a) {
+  let prime = true;
+  if (a < 0) {
+    console.log("Negative numbers can't be Prime");
+  } else {
+    for (let i = 2; i < a; i++) {
+      if (a % i === 0) {
+        prime = false;
+        console.log(a + ' is Not a Prime number');
+        break;
+      }
+    }
+    if (prime === true) {
+      console.log(a + ' is Prime number!');
+    }
+  }
+}
+
+CheckPrime(6);

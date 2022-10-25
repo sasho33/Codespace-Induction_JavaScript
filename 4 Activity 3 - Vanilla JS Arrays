@@ -1,0 +1,5 @@
+const arr = [25, 14, 56, 15, 36, 56, 77, 18, 29, 49];
+
+console.log('Original array is ' + arr);
+console.log('Maximum value for the above array is ' + Math.max(...arr));
+console.log('Minimum value for the above array is ' + Math.min(...arr));

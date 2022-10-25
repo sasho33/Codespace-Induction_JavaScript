@@ -1,0 +1,6 @@
+function ShowAndMax(arr) {
+  console.log('The content of the array is: ' + arr);
+  console.log('The max value in the array is: ' + Math.max(...arr));
+}
+
+ShowAndMax([10, 2, 3, 4, 7]);

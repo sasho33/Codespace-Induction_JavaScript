@@ -1,0 +1,11 @@
+var a = prompt('Enter first number');
+var b = prompt('Enter second number');
+var c = prompt('Enter third number');
+
+if (a < b && b < c) {
+  console.log('Increasing order');
+} else if (a > b && b > c) {
+  console.log('Decreasing order');
+} else {
+  console.log('Neither increasing or decreasing order');
+}

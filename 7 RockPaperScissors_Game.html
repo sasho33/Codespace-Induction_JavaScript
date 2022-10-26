@@ -29,6 +29,22 @@ button {
   margin-top: 40px;
   text-align: center;
 }
+.statistic {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 80%;
+  display: flex;
+justify-content: center;
+}
+.statistic div {
+float: left;
+display: block;
+min-width: 10%;
+border: 1px solid blue;
+margin: 2px;
+}
+
+
     </style>
     <img src="" alt="">
 <h4>
@@ -47,12 +63,26 @@ Choose your option below!
 <h3 id="You">Your Choice: </h3>
 <h3 id="Computer">Computer Choice: </h3>
 <h3 id="Results">Result: </h3>
+<div class="statistic">
+  <div>
+      <h3 id="wins">Wins: <h3>
+  </div>
+  <div >
+    <h3 id="looses">Loses: <h3>
+  </div>
+  <div >
+    <h3 id="draws">Draws: <h3>
+  </div>
+</div>
+
 </div>
 
 <script type="text/javascript">
   function getResult() {
     event.preventDefault()
-
+    var winCounter=0;
+    var looseCounter=0;
+    var drawCounter=0;
 // array of probably options
     var variants=["Rock", "Paper", "Scissors"];
 
@@ -64,6 +94,7 @@ for (let item of btn) {
   item.onclick = function(){
   var userChoice = variants[item.value];
 
+
 document.getElementById("You").innerHTML="Your Choice: "+userChoice
 const randomInt = Math.floor(Math.random() * 3);
 var computerChoice = variants[randomInt];
@@ -71,15 +102,21 @@ document.getElementById("Computer").innerHTML="Computer Choice: "+computerChoice
 
 // game logic
 if (computerChoice==userChoice) {
-  document.getElementById("Results").innerHTML="Result: Its a tie! "
+  drawCounter+=1;
+  document.getElementById("Results").innerHTML="Result: Its a tie!";
+    document.getElementById("draws").innerHTML="Draws: "+drawCounter;
 }
 else if (computerChoice=="Paper" && userChoice=="Scissors" || computerChoice=="Scissors" && userChoice=="Rock" || computerChoice=="Rock" && userChoice=="Paper")
 {
+    winCounter+=1;
   document.getElementById("Results").innerHTML="Result: You won! "
+document.getElementById("wins").innerHTML="Wins: "+winCounter;
 }
 else
 {
+  looseCounter+=1;
   document.getElementById("Results").innerHTML="Result: You lose! "
+document.getElementById("looses").innerHTML="Loses: "+looseCounter;
 }
   }
 }
